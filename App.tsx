@@ -1,24 +1,17 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
+import { theme } from "./theme";
+import { ShoppingListItem } from "./components/ShoppingListItem";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      {/* correct way of conditionally render instead of using && */}
-      {!NaN ? (
-        <Text
-          style={{
-            backgroundColor: "pink",
-            paddingHorizontal: 8,
-            paddingVertical: 16,
-          }}
-        >
-          Open up App.tsx to start working on your app!
-        </Text>
-      ) : (
-        <Text>This will be ignored 🤖</Text>
-      )}
-      <StatusBar style="auto" />
+      {/* This gives us ability to add absolute position to fill up the whole screen 
+      Ordering matters!!!
+      */}
+      {/* <View style={[StyleSheet.absoluteFill, { backgroundColor: "pink" }]} /> */}
+      <ShoppingListItem name="Coffee" />
+      <ShoppingListItem name="Tea" />
+      <ShoppingListItem name="Sugar" />
     </View>
   );
 }
@@ -26,7 +19,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: theme.colorWhite,
     justifyContent: "center",
   },
 });
