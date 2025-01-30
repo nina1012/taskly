@@ -1,11 +1,13 @@
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import { theme } from "../theme";
+import AntDesign from "@expo/vector-icons/AntDesign";
 
 type Props = {
   name: string;
+  isCompleted?: boolean;
 };
 
-export function ShoppingListItem({ name }: Props) {
+export function ShoppingListItem({ name, isCompleted }: Props) {
   const handleDelete = () => {
     Alert.alert(
       `Are you sure you want to delete ${name}?`,
@@ -22,14 +24,26 @@ export function ShoppingListItem({ name }: Props) {
     );
   };
   return (
-    <View style={styles.itemContainer}>
-      <Text style={styles.itemText}>{name}</Text>
-      <TouchableOpacity
-        style={styles.button}
-        activeOpacity={0.8}
-        onPress={handleDelete}
+    <View
+      style={[
+        styles.itemContainer,
+        isCompleted ? styles.completedContainer : undefined,
+      ]}
+    >
+      <Text
+        style={[
+          styles.itemText,
+          isCompleted ? styles.completedText : undefined,
+        ]}
       >
-        <Text style={styles.buttonText}>Delete</Text>
+        {name}
+      </Text>
+      <TouchableOpacity activeOpacity={0.8} onPress={handleDelete}>
+        <AntDesign
+          name="closecircle"
+          size={24}
+          color={isCompleted ? theme.colorGrey : theme.colorRed}
+        />
       </TouchableOpacity>
     </View>
   );
@@ -37,7 +51,7 @@ export function ShoppingListItem({ name }: Props) {
 
 const styles = StyleSheet.create({
   itemContainer: {
-    paddingHorizontal: 8,
+    paddingHorizontal: 18,
     paddingVertical: 16,
     borderBottomColor: theme.colorCerulean,
     borderBottomWidth: 1,
@@ -45,12 +59,14 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
   },
+  completedContainer: {
+    backgroundColor: theme.colorLightGrey,
+    borderBottomColor: theme.colorLightGrey,
+  },
   itemText: { fontSize: 18, fontWeight: "200" },
-  button: { backgroundColor: theme.colorBlack, padding: 8, borderRadius: 6 },
-  buttonText: {
-    color: theme.colorWhite,
-    fontWeight: "bold",
-    textTransform: "uppercase",
-    letterSpacing: 1,
+  completedText: {
+    textDecorationLine: "line-through",
+    textDecorationColor: theme.colorGrey,
+    color: theme.colorGrey,
   },
 });
