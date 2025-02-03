@@ -31,3 +31,9 @@ There are 3 ways to navigate between screens:
 1. using `Link` component
 2. `useRouter`
 3. built-in header and bottom tabs button
+
+### Push notifications
+
+There are 2 types of notifications:
+-remote(called from the server - Apple, Firebase, etc.)
+-local(scheduled within the app and sent to current device only)
