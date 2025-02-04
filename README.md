@@ -35,5 +35,22 @@ There are 3 ways to navigate between screens:
 ### Push notifications
 
 There are 2 types of notifications:
--remote(called from the server - Apple, Firebase, etc.)
--local(scheduled within the app and sent to current device only)
+
+- remote(called from the server - Apple, Firebase, etc.)
+- local(scheduled within the app and sent to current device only)
+
+## Screenshots of the app
+
+![Shopping list screen](./assets/shopping-list.png)
+
+---
+
+![Counter](./assets/counter.png)
+
+---
+
+![History](./assets/history.png)
+
+---
+
+![Emoji picker](./assets/emoji-picker.png)
