@@ -62,13 +62,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginVertical: 18,
   },
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#fff",
-  },
-  text: {
-    fontSize: 24,
-  },
+  // container: {
+  //   flex: 1,
+  //   justifyContent: "center",
+  //   alignItems: "center",
+  //   backgroundColor: "#fff",
+  // },
+  // text: {
+  //   fontSize: 24,
+  // },
 });

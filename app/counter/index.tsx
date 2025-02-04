@@ -139,8 +139,12 @@ export default function CounterScreen() {
         </Text>
       )}
 
-      <View style={styles.row}>
-        status.isOverdue ? styles.containerLate : undefined,
+      <View
+        style={[
+          styles.row,
+          status.isOverdue ? styles.containerLate : undefined,
+        ]}
+      >
         <TimeSegment
           unit="Days"
           number={status.distance.days ?? 0}
